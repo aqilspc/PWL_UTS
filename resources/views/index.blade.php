@@ -46,7 +46,7 @@ cari
 	<td>{{$b->qty}}</td>
 		<td>
 		
-		<a class="btn btn-danger" href="{{url('delete/'.$b->id_barang)}}">Delete</a>
+		<a class="btn btn-danger" onclick="return confirm('Apakah anda yakin ingin menghapus barang?')" href="{{url('delete/'.$b->id_barang)}}">Delete</a>
 
 		<a class="btn btn-info"  href="{{url('show/'.$b->id_barang)}}">Show</a>
 
