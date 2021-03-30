@@ -17,4 +17,11 @@ Route::get('/', function () {
     return redirect('barang');
 });
 Route::get('barang',[BarangController::class, 'index']);
+Route::get('create',[BarangController::class,'create']);
+Route::get('edit/{id}',[BarangController::class,'edit']);
+Route::get('show/{id}',[BarangController::class,'show']);
+Route::get('delete/{id}',[BarangController::class,'delete']);
+
+Route::post('tambah',[BarangController::class, 'tambah']);
+Route::post('update/{id}',[BarangController::class, 'update']);
 Route::post('cari',[BarangController::class, 'cari']);

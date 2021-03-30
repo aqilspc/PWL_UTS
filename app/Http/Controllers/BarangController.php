@@ -39,4 +39,55 @@ class BarangController extends Controller
     		}
     	}
     }
+
+    public function create()
+    {
+    	return view('create');
+    }
+
+    public function tambah(Request $request)
+    {
+    	 $request->validate(
+    	 [
+    	 'nama_barang'=>'required'
+        ,'kode_barang'=>'required'
+        ,'qty'=>'required'
+        ,'harga'=>'required'
+        ,'kategori_barang'=>'required'
+        ]);//fungsieloquentuntukmenambahdata
+        Barang::create($request->all());
+        return redirect('barang');
+    }
+
+    public function update(Request $request,$id)
+    {
+    	 $request->validate(
+    	 [
+    	 'nama_barang'=>'required'
+        ,'kode_barang'=>'required'
+        ,'qty'=>'required'
+        ,'harga'=>'required'
+        ,'kategori_barang'=>'required'
+        ]);//fungsieloquentuntukmenambahdata
+          Barang::find($id)->update($request->all());
+        return redirect('barang');
+    }
+
+    public function show($id)
+    {
+    	$data = Barang::find($id);
+    	return view('show',compact('data'));
+    }
+
+    public function edit($id)
+    {
+    	$data = Barang::find($id);
+    	return view('edit',compact('data'));
+    }
+
+    public function delete($id)
+    {
+    	 Barang::find($id)->delete();
+    	 return redirect('barang'); 
+    }
 }

@@ -7,6 +7,10 @@
 		</div>
 </div>
 </div>
+	<a href="{{url('create')}}"><button type="button" class="btn btn-info mt-3">
+<i class="fa fa-home">Tambah Barang</i>
+</button></a>
+<br/>
 <br>
 <form method="post" action="{{url('cari')}}" id="myForm">
 @csrf
@@ -30,6 +34,7 @@ cari
 	<th>Kategori Barang</th>
 	<th>Harga</th>
 	<th>Quantity</th>
+	<th width="280px">Action</th>
 </tr>
 @foreach($barang as $index => $b)
 <tr>
@@ -39,6 +44,17 @@ cari
 	<td>{{$b->kategori_barang}}</td>
 	<td>{{number_format($b->harga)}}</td>
 	<td>{{$b->qty}}</td>
+		<td>
+		
+		<a class="btn btn-danger" href="{{url('delete/'.$b->id_barang)}}">Delete</a>
+
+		<a class="btn btn-info"  href="{{url('show/'.$b->id_barang)}}">Show</a>
+
+		<a class="btn btn-primary"  href="{{url('edit/'.$b->id_barang)}}">Edit</a>
+
+	</form>
+
+</td>
 </tr>
 @endforeach
 
