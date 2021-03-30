@@ -34,8 +34,11 @@ class BarangController extends Controller
     			if($kode)
     			{
     				$barang = $kode;
+    				return view('hasil_kode',compact('barang','object'));
+    			}else
+    			{
+    				return 'barang '.$object.' yang anda cari tidak ada! <a class="btn btn-success mt-3" href="'.url('/').'">Home</a>';
     			}
-    			return view('hasil_kode',compact('barang','object'));
     		}
     	}
     }
